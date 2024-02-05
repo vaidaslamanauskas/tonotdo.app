@@ -1,0 +1,70 @@
+@font-face {
+  font-family: "Helvetica_Condensed_Black";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/Helvetica_Condensed_Black.woff2") format("woff2");
+}
+
+*, *:before, *:after { box-sizing: border-box; }
+
+html,
+body {
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: pink;
+  color: indigo;
+
+  font-family: "Helvetica_Condensed_Black";
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+input {
+  position: fixed;
+}
+
+#clickCanvas {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  
+  z-index: 0;
+
+  background-color: blueviolet;
+}
+
+#cursor {
+  position: fixed;
+  
+  width: 100px;
+  height: 100px;
+  
+  pointer-events: none;
+  
+  background-color: violet;
+}
+
+#cursor.hide {
+  background-color: indigo;
+}
+
+#cursor::before {
+  content: "add";
+}
+
+#cursor.hide::before {
+  content: "write"
+}
