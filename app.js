@@ -54,6 +54,11 @@ async function handleItem(pos) {
 
       cursor.classList.remove('hover')
     }
+
+    // handle removal ..
+    article.addEventListener('click', function () {
+      this.remove();
+    });
   }
   
   // blur uuu

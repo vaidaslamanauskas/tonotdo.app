@@ -128,7 +128,7 @@ article:hover {
 }
 
 #cursor.active {
-  transform: none;
+  transform: scale(1) translateZ(0);
 }
 
 #cursor.hide {
