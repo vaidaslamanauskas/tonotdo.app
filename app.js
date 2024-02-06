@@ -58,6 +58,7 @@ async function handleItem(pos) {
     // handle removal ..
     article.addEventListener('click', function () {
       this.remove();
+      cursor.classList.remove('hover');
     });
   }
   
