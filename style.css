@@ -137,7 +137,7 @@ article:hover {
 }
 
 #cursor::before {
-  content: "add";
+  content: "click";
 }
 
 #cursor.hide::before {
@@ -146,6 +146,10 @@ article:hover {
 
 #cursor.hover::before {
   content: "hoover";
+}
+
+#cursor.board::before {
+  content: "add";
 }
 
 #sound-controller {

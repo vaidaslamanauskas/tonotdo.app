@@ -14,6 +14,18 @@ var body = document.querySelector('body');
 
 var board = document.querySelector('#board');
 
+board.onmouseover = function() {
+  console.log('board hover ON')
+
+  cursor.classList.add('board')
+}
+
+board.onmouseout = function() {
+  console.log('board hover OFF')
+
+  cursor.classList.remove('board')
+}
+
 async function handleItem(pos) {
 
   // prevent double click .. fix later
