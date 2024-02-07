@@ -152,6 +152,10 @@ article:hover {
   content: "add";
 }
 
+#cursor.input::before {
+  content: "save";
+}
+
 #sound-controller {
   background-color: #e8caa4;
 

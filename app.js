@@ -46,6 +46,17 @@ async function handleItem(pos) {
   
   input.style.top = pos.pageY;
   input.style.left = pos.pageX;
+
+  // empty cursor handle it okay .. ?
+  input.addEventListener('input', function(e) {
+    if (this.value.trim().length !== 0) {
+      console.log('empty input');
+      cursor.classList.add('input');
+    } else {
+      console.log('not empty!!');
+      cursor.classList.remove('input');
+    }
+  });
   
   // save ..
   const save = function(e) {
@@ -60,7 +71,9 @@ async function handleItem(pos) {
     
     board.style.pointerEvents = '';
 
+    // fk
     cursor.classList.remove('hide');
+    cursor.classList.remove('input');
 
     // handle hover .. ?
     article.onmouseover = function() {
