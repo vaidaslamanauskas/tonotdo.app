@@ -200,3 +200,64 @@ article:hover {
 #sound-controller.off > .stick:last-of-type {
   transform: rotate(45deg)!important;
 }
+
+#i-button {
+  background-color: black;
+  border: 0;
+
+  position: fixed;
+  display: block;
+
+  left: 50px;
+  bottom: 50px;
+
+  width: 57px;
+  height: 57px;
+
+  outline: 0;
+}
+
+#i-button > img {
+  position: absolute;
+  display: block;
+}
+
+#i-button > img:first-of-type {
+  top: 12px;
+  left: 24px;
+  width: 9px;
+  height: 9px;
+}
+
+#i-button > img:last-of-type {
+  left: 21px;
+  bottom: 13px;
+  width: 16px;
+  height: 20px;
+}
+
+#i-button:hover > img:first-of-type {
+  animation-name: puntoBounce;
+  animation-duration: 1.25s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes puntoBounce {
+  from, 20%, 53%, 80%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transform: translate3d(0, 3px, 0);
+  }
+  40%, 43% {
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transform: translate3d(0, -24px, 0);
+  }
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transform: translate3d(0, -12px, 0);
+  }
+  90% {
+    transform: translate3d(0,-4px,0);
+  }
+}
