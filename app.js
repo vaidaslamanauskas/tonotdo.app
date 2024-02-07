@@ -116,7 +116,7 @@ document.addEventListener('mousemove', function(e) {
   handleCursor(e);
 });
 
-var commands = [
+var messages = [
   'Calling the Choppa',
   'Valuing enthusiasm over perfection',
   'Investigating Who Killed Captain Alex',
@@ -126,23 +126,23 @@ var commands = [
 ];
 
 async function pasteCommands() {
-  commands = shuffle(commands);
+  messages = shuffle(messages);
 
-  var terminal = document.createElement('h1');
-  document.querySelector('body').appendChild(terminal);
+  var introHeadline = document.createElement('h1');
+  document.querySelector('body').appendChild(introHeadline);
 
-  for(var i = 0; i < commands.length; i++)
+  for(var i = 0; i < messages.length; i++)
   {
-    tekst = commands[i]
-    terminal.innerHTML = tekst+'... ';
+    tekst = messages[i]
+    introHeadline.innerText = tekst+'... ';
     await sleep(250);
     // terminal.innerHTML += '<code>DONE</code><br>';
     // await sleep(getRandomNumberBetween(10, 200));
   }
 
-  terminal.innerHTML = 'ulala .. ?';
+  introHeadline.innerText = 'ulala .. ?';
   await sleep(1000);
-  terminal.remove();
+  introHeadline.remove();
 
   cursor.classList.add('active')
 
