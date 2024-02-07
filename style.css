@@ -147,3 +147,56 @@ article:hover {
 #cursor.hover::before {
   content: "hoover";
 }
+
+#sound-controller {
+  background-color: #e8caa4;
+
+  border: 0;
+  outline: 0;
+
+  position: fixed;
+  display: block;
+  right: 50px;
+  bottom: 50px;
+
+  width: 57px;
+  height: 57px;
+}
+
+#sound-controller > img {
+  position: absolute;
+  width: 14px;
+  height: 24px;
+  top: 17px;
+  left: 15px;
+}
+
+#sound-controller > .stick {
+  background-color: #351330;
+
+  width: 2px;
+  height: 10px;
+
+  display: block;
+  position: absolute;
+  left: 32px;
+  top: 24px;
+  transform: scale(1,1) translate(0,0) rotate(0deg);
+  transition: all .3s linear;
+}
+
+#sound-controller > .stick:last-of-type {
+  height: 16px;
+  display: block;
+  left: 37px;
+  top: 21px;
+}
+
+#sound-controller.off > .stick:first-of-type {
+  height: 16px!important;
+  transform: translate(5px,-3px) rotate(-45deg)!important;
+}
+
+#sound-controller.off > .stick:last-of-type {
+  transform: rotate(45deg)!important;
+}
