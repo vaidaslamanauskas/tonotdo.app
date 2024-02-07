@@ -59,7 +59,25 @@ async function handleItem(pos) {
     article.addEventListener('click', function () {
       this.remove();
       cursor.classList.remove('hover');
+
+      getNumberOfArticles();
     });
+
+    // run count
+    var counterVisible = false;
+
+    function getNumberOfArticles() {
+      var leftToAvoid = document.querySelector('#left-to-avoid');
+      var numberOfArticles = document.querySelectorAll('article').length;
+
+      leftToAvoid.innerHTML = 'you have ' + numberOfArticles + ' things to avoid';
+
+      counterVisible = true;
+
+      console.log(counterVisible);
+    }
+
+    getNumberOfArticles();
   }
   
   // blur uuu
@@ -101,7 +119,6 @@ document.addEventListener('mousemove', function(e) {
 var commands = [
   'Calling the Choppa',
   'Valuing enthusiasm over perfection',
-  'Cooking German food',
   'Investigating Who Killed Captain Alex',
   'Stealing The Choppa',
   'Mining minerals in Congo',
@@ -118,7 +135,7 @@ async function pasteCommands() {
   {
     tekst = commands[i]
     terminal.innerHTML = tekst+'... ';
-    await sleep(500);
+    await sleep(250);
     // terminal.innerHTML += '<code>DONE</code><br>';
     // await sleep(getRandomNumberBetween(10, 200));
   }

@@ -25,7 +25,8 @@ body {
   text-transform: uppercase;
 }
 
-main {
+main,
+footer {
   position: relative;
   z-index: 1;
 }
