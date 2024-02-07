@@ -140,6 +140,14 @@ document.addEventListener('mousemove', function(e) {
   handleCursor(e);
 });
 
+// TODO: move up & rename ..
+var infoController = document.querySelector('#i-button');
+
+async function bumpInterface() {
+  soundController.className = 'bump';
+  infoController.className = 'bump';
+}
+
 var messages = [
   'Calling the Choppa',
   'Valuing enthusiasm over perfection',
@@ -149,7 +157,7 @@ var messages = [
   'Expecting the unexpectable'
 ];
 
-async function pasteCommands() {
+async function pasteMessages() {
   messages = shuffle(messages);
 
   var introHeadline = document.createElement('h1');
@@ -168,6 +176,9 @@ async function pasteCommands() {
   await sleep(1000);
   introHeadline.remove();
 
+  // bump UI ..
+  bumpInterface();
+
   cursor.classList.add('active')
 
 }
@@ -184,5 +195,5 @@ function shuffle(a) {
 }
 
 (() => {
-  pasteCommands();
+  pasteMessages();
 })()

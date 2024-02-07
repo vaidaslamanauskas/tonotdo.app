@@ -165,6 +165,12 @@ article:hover {
 
   width: 57px;
   height: 57px;
+
+  transform: scale(.5);
+}
+
+#sound-controller.bump {
+  transform: none;
 }
 
 #sound-controller > img {
@@ -219,6 +225,12 @@ article:hover {
   height: 57px;
 
   outline: 0;
+
+  transform: scale(.5);
+}
+
+#i-button.bump {
+  transform: none;
 }
 
 #i-button > img {
