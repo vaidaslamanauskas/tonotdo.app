@@ -170,6 +170,7 @@ article:hover {
   width: 57px;
   height: 57px;
 
+  transition: 1000ms ease;
   transform: scale(.5);
 }
 
@@ -230,6 +231,7 @@ article:hover {
 
   outline: 0;
 
+  transition: 1000ms ease;
   transform: scale(.5);
 }
 

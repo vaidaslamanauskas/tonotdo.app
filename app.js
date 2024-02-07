@@ -156,7 +156,10 @@ document.addEventListener('mousemove', function(e) {
 // TODO: move up & rename ..
 var infoController = document.querySelector('#i-button');
 
+// TODO: bump ba dam
 async function bumpInterface() {
+  cursor.classList.add('active');
+  
   soundController.className = 'bump';
   infoController.className = 'bump';
 }
@@ -192,7 +195,8 @@ async function pasteMessages() {
   // bump UI ..
   bumpInterface();
 
-  cursor.classList.add('active')
+  // push to storage
+  sessionStorage.setItem('intro', 'true');
 
 }
 
@@ -208,5 +212,10 @@ function shuffle(a) {
 }
 
 (() => {
-  pasteMessages();
+
+  if(!sessionStorage.getItem('intro')) {
+    pasteMessages();
+  } else {
+    bumpInterface();
+  }
 })()
