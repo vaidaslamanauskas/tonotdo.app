@@ -2,6 +2,14 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
+var soundIsOn = true;
+var soundController = document.querySelector('#sound-controller');
+
+soundController.addEventListener('click', function() {
+  soundIsOn = !soundIsOn,
+  soundIsOn ? soundController.className = '' : soundController.className = 'off'
+});
+
 var body = document.querySelector('body');
 
 var board = document.querySelector('#board');
@@ -59,6 +67,10 @@ async function handleItem(pos) {
     article.addEventListener('click', function () {
       this.remove();
       cursor.classList.remove('hover');
+
+      // remove audio
+      let audio = new Audio('/sounds/remove.m4a');
+      soundIsOn && audio.play();
 
       getNumberOfArticles();
     });
