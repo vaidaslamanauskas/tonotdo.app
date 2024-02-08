@@ -135,19 +135,35 @@ board.addEventListener('click', handleItem, false);
 
 // ..
 function handleCursor(e) {
-  scrollTop = void 0 !== window.pageYOffset ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop,
-  cursorLeft = e.pageX + 'px',
-  cursorTop = e.pageY - scrollTop + 'px',
-  cursor.style.top = cursorTop,
-  cursor.style.left = cursorLeft;
-  //cursor.classList.add('active')
+  mouseX = e.pageX;
+  mouseY = e.pageY;
 }
 
-var scrollTop, cursorLeft, cursorTop, 
-    windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
-    windowHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0), 
-    body = document.body, 
-    cursor = document.getElementById('cursor');
+let cursor = document.getElementById('cursor');
+
+let mouseX = 0;
+let mouseY = 0;
+
+let boxX = 0;
+let boxY = 0;
+
+let boxSpeed = 0.02;
+
+function animateCursor() {
+  
+  let distX = mouseX - boxX;
+  let distY = mouseY - boxY;
+  
+  boxX = boxX + (distX * boxSpeed);
+  boxY = boxY + (distY * boxSpeed);
+  
+  cursor.style.left = boxX + 'px';
+  cursor.style.top = boxY + 'px';
+  
+  requestAnimationFrame(animateCursor);
+}
+
+animateCursor();
 
 document.addEventListener('mousemove', function(e) {
   handleCursor(e);
