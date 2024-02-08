@@ -17,13 +17,13 @@ var board = document.querySelector('#board');
 board.onmouseover = function() {
   console.log('board hover ON')
 
-  cursor.classList.add('board')
+  cursor.classList.add('hovering-board')
 }
 
 board.onmouseout = function() {
   console.log('board hover OFF')
 
-  cursor.classList.remove('board')
+  cursor.classList.remove('hovering-board')
 }
 
 async function handleItem(pos) {
@@ -40,7 +40,7 @@ async function handleItem(pos) {
   await sleep(1000);
   
   // cursor
-  cursor.classList.add('hide');
+  cursor.classList.add('focusing-empty-input');
   
   input.focus();
   
@@ -51,10 +51,10 @@ async function handleItem(pos) {
   input.addEventListener('input', function(e) {
     if (this.value.trim().length !== 0) {
       console.log('empty input');
-      cursor.classList.add('input');
+      cursor.classList.add('focusing-input');
     } else {
       console.log('not empty!!');
-      cursor.classList.remove('input');
+      cursor.classList.remove('focusing-input');
     }
   });
   
@@ -72,26 +72,26 @@ async function handleItem(pos) {
     board.style.pointerEvents = '';
 
     // fk
-    cursor.classList.remove('hide');
-    cursor.classList.remove('input');
+    cursor.classList.remove('focusing-empty-input');
+    cursor.classList.remove('focusing-input');
 
     // handle hover .. ?
     article.onmouseover = function() {
       console.log('article hover ON')
 
-      cursor.classList.add('hover')
+      cursor.classList.add('hovering-article')
     }
   
     article.onmouseout = function() {
       console.log('article hover OFF')
 
-      cursor.classList.remove('hover')
+      cursor.classList.remove('hovering-article')
     }
 
     // handle removal ..
     article.addEventListener('click', function () {
       this.remove();
-      cursor.classList.remove('hover');
+      cursor.classList.remove('hovering-article');
 
       // remove audio
       let audio = new Audio('/sounds/remove.m4a');

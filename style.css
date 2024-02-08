@@ -132,28 +132,33 @@ article:hover {
   transform: scale(1) translateZ(0);
 }
 
-#cursor.hide {
-  background-color: darkmagenta;
-}
-
+/* default state */
 #cursor::before {
   content: "click";
 }
 
-#cursor.hide::before {
+/* focusing empty input */
+#cursor.focusing-empty-input {
+  background-color: darkmagenta;
+}
+
+#cursor.focusing-empty-input::before {
   content: "write";
 }
 
-#cursor.hover::before {
+/* focusing non-empty input */
+#cursor.focusing-input::before {
+  content: "save";
+}
+
+/* hovering article */
+#cursor.hovering-article::before {
   content: "hoover";
 }
 
-#cursor.board::before {
+/* hovering board */
+#cursor.hovering-board::before {
   content: "add";
-}
-
-#cursor.input::before {
-  content: "save";
 }
 
 #sound-controller {
