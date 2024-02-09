@@ -7,7 +7,7 @@ var soundController = document.querySelector('#sound-controller');
 
 soundController.addEventListener('click', function() {
   soundIsOn = !soundIsOn,
-  soundIsOn ? soundController.className = '' : soundController.className = 'off'
+  soundIsOn ? soundController.classList.remove('off') : soundController.classList.add('off');
 });
 
 var body = document.querySelector('body');
